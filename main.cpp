@@ -8,11 +8,16 @@
 
 int main () {
     char *toURLify = new char[100];
+    char *strPalindrome = new char[100];
     strcpy (toURLify, "Mr John Smith    ");
+    strcpy (strPalindrome, "Tact Coa");
 
     Strings::URLify (toURLify, 13);
 
-    std::cout << toURLify;
+    std::cout << toURLify << "\n";
+    std::cout << Strings::isPalindromePermutation (strPalindrome);
+
+    delete[] strPalindrome;
+    delete[] toURLify;
     return 0;
 }
-

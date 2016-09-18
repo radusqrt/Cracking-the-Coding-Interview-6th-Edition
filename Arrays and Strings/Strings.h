@@ -10,6 +10,7 @@ class Strings {
 
 public:
     static void URLify (char *toURLify, int length);
+    static bool isPalindromePermutation (char *s);
 };
 
 

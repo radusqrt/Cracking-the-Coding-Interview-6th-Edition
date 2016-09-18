@@ -3,6 +3,8 @@
 //
 
 #include <cstring>
+#include <cstdio>
+#include <iostream>
 #include "Strings.h"
 
 void Strings::URLify(char *toURLify, int length) {
@@ -61,7 +63,9 @@ bool Strings::isOneAway(char *s1, char *s2) {
     // Replace
     if (l1 == l2) {
         for (i = 0; i < l1; ++ i) {
-            if (s1[i] != s2[i]) return strcmp (s1 + i + 1, s2 + i + 1) == 0;
+            if (s1[i] != s2[i]) {
+                return strcmp (s1 + i + 1, s2 + i + 1) == 0;
+            }
         }
 
         return true;
@@ -85,4 +89,39 @@ bool Strings::isOneAway(char *s1, char *s2) {
     }
 
     return true;
+}
+
+void Strings::compressString(char *toCompress) {
+    char *compressed, *count;
+    int initLength, compressedLength, i, j;
+    initLength = (int) strlen (toCompress);
+    compressed = new char[2 * initLength];
+    count = new char[4];
+    compressedLength = 0;
+
+    for (i = 0; i < initLength; ++ i) {
+        for (j = i; j < initLength; ++ j) {
+            if (toCompress[j] != toCompress[i]) {
+                break;
+            }
+        }
+
+        compressed[compressedLength ++] = toCompress[i];
+        compressed[compressedLength] = '\0';
+        sprintf (count, "%d", j - i);
+        strcat (compressed, count);
+        compressedLength += strlen (count);
+        i = j - 1;
+    }
+
+    if (compressedLength < initLength) {
+        strcpy (toCompress, compressed);
+    }
+
+    delete[] compressed;
+    delete[] count;
+}
+
+void Strings::rotateMatrix(int **matrix, int N) {
+
 }

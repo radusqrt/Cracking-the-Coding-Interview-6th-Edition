@@ -174,3 +174,34 @@ void Strings::printMatrix(int **matrix, int N) {
         std::cout << "\n";
     }
 }
+
+bool Strings::isSubstringOf(char *a, char *A) {
+    int l, L, i, j;
+    l = (int) strlen (a);
+    L = (int) strlen (A);
+
+    for (i = 0; i < L - l + 1; ++ i) {
+        if(A[i] == a[0]) {
+            j = 0;
+
+            while (A[i] == a[j] && i < L && j < l) {
+                i ++; j ++;
+            }
+
+            if (j == l) return true;
+            i --;
+        }
+    }
+
+    return false;
+}
+
+bool Strings::isRotation(char *a, char *b) {
+    char *aux = new char[2 * strlen (a) + 1];
+    strcpy (aux, a);
+    strcat (aux, a);
+    bool answer = isSubstringOf(b, aux);
+
+    delete[] aux;
+    return answer;
+}

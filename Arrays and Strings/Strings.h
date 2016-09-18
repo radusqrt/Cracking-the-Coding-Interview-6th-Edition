@@ -16,6 +16,8 @@ public:
     static void rotateMatrix (int **matrix, int N);
     static void zeroMatrix (int **matrix, int N);
     static void printMatrix (int **matrix, int N);
+    static bool isSubstringOf (char *a, char *A);
+    static bool isRotation (char *a, char *b);
 };
 
 

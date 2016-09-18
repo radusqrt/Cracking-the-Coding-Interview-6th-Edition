@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cstring>
-#include "Strings.h"
+#include "Arrays and Strings/Strings.h"
 
 int main () {
     char *toURLify = new char[100];

@@ -3,5 +3,5 @@ project(CTCI_6th_Edition)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp main.cpp Strings.cpp Strings.h)
+set(SOURCE_FILES "main.cpp" "main.cpp" "Arrays and Strings/Strings.cpp" "Arrays and Strings/Strings.h")
 add_executable(CTCI_6th_Edition ${SOURCE_FILES})

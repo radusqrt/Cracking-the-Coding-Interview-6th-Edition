@@ -30,22 +30,22 @@ void Strings::URLify(char *toURLify, int length) {
 }
 
 bool Strings::isPalindromePermutation(char *s) {
-    int *freq = new int[300], i, length = (int) strlen (s), odds = 0;
+    int freq = 0, i, length = (int) strlen (s), odds = 0;
 
     for (i = 0; i < length; ++ i) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            s[i] += 32;
+        }
+
         if (s[i] >= 'a' && s[i] <= 'z') {
-            freq[s[i]]++;
-        } else if (s[i] >= 'A' && s[i] <= 'Z') {
-            freq[s[i] + 32] ++;
+            freq ^= (1 << s[i] - 'a');
         }
     }
 
-    for (i = 'a'; i <= 'z'; ++ i) {
-        if (freq[i] % 2 == 1) {
-            odds ++;
-        }
+    while (freq) {
+        odds ++;
+        freq &= (freq - 1);
     }
 
-    delete[] freq;
     return (odds < 2);
 }

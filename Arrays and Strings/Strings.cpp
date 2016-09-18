@@ -159,6 +159,9 @@ void Strings::zeroMatrix(int **matrix, int N) {
             }
         }
     }
+
+    delete[] rows;
+    delete[] columns;
 }
 
 void Strings::printMatrix(int **matrix, int N) {

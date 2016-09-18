@@ -49,3 +49,40 @@ bool Strings::isPalindromePermutation(char *s) {
 
     return (odds < 2);
 }
+
+bool Strings::isOneAway(char *s1, char *s2) {
+    int l1, l2, i, length;
+    char *big, *small;
+    l1 = (int) strlen (s1);
+    l2 = (int) strlen (s2);
+
+    if (l1 - l2 > 1 || l2 - l1 > 1) return false;
+
+    // Replace
+    if (l1 == l2) {
+        for (i = 0; i < l1; ++ i) {
+            if (s1[i] != s2[i]) return strcmp (s1 + i + 1, s2 + i + 1) == 0;
+        }
+
+        return true;
+    }
+
+    // Insert or remove
+    if (l1 == l2 + 1) {
+        big = s1;
+        small = s2;
+        length = l2;
+    } else {
+        big = s2;
+        small = s1;
+        length = l1;
+    }
+
+    for (i = 0; i < length; ++ i) {
+        if (small[i] != big[i]) {
+            return strcmp (small + i, big + i + 1) == 0;
+        }
+    }
+
+    return true;
+}

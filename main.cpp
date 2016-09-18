@@ -3,10 +3,16 @@
 //
 
 #include <iostream>
+#include <cstring>
+#include "Strings.h"
 
 int main () {
-    std::cout << "Hello, world!\n";
+    char *toURLify = new char[100];
+    strcpy (toURLify, "Mr John Smith    ");
 
+    Strings::URLify (toURLify, 13);
+
+    std::cout << toURLify;
     return 0;
 }
 

@@ -123,5 +123,51 @@ void Strings::compressString(char *toCompress) {
 }
 
 void Strings::rotateMatrix(int **matrix, int N) {
+    int maxDepth, i, k, aux;
+    maxDepth = N / 2;
 
+    for (k = 0; k < maxDepth; ++ k) {
+        for (i = k; i < N - k - 1; ++ i) {
+            aux = matrix[i][k];
+            matrix[i][k] = matrix[N - k - 1][i];
+            matrix[N - k - 1][i] = matrix[N - i - 1][N - k - 1];
+            matrix[N - i - 1][N - k - 1] = matrix[k][N - i - 1];
+            matrix[k][N - i - 1] = aux;
+        }
+    }
+}
+
+void Strings::zeroMatrix(int **matrix, int N) {
+    int i, j;
+    bool *rows, *columns;
+    rows = new bool[N];
+    columns = new bool[N];
+
+    for (i = 0; i < N; ++ i) {
+        for (j = 0; j < N; ++ j) {
+            if (matrix[i][j] == 0) {
+                rows[i] = true;
+                columns[j] = true;
+            }
+        }
+    }
+
+    for (i = 0; i < N; ++ i) {
+        for (j = 0; j < N; ++ j) {
+            if (rows[i] || columns[j]) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+}
+
+void Strings::printMatrix(int **matrix, int N) {
+    int i, j;
+
+    for (i = 0; i < N; ++ i) {
+        for (j = 0; j < N; ++ j) {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << "\n";
+    }
 }

@@ -14,6 +14,8 @@ public:
     static bool isOneAway (char *s1, char *s2);
     static void compressString (char *toCompress);
     static void rotateMatrix (int **matrix, int N);
+    static void zeroMatrix (int **matrix, int N);
+    static void printMatrix (int **matrix, int N);
 };
 
 

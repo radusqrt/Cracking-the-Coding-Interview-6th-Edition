@@ -14,10 +14,12 @@ class LinkedList {
 public:
     LinkedList ();
     ~LinkedList ();
+    Node <T>* getHead ();
     void insert (T element);
     void printList ();
     void removeDuplicates ();
     bool kthToLast (int k, T &data);
+    void deleteMiddleNode (Node <T> *node);
 };
 
 #endif //CTCI_6TH_EDITION_LINKEDLIST_H

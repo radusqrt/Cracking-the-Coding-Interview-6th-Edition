@@ -81,11 +81,16 @@ int main () {
     l.insert(1);
     l.insert(3);
     l.printList();
+
     l.removeDuplicates();
     l.printList();
+
     if (l.kthToLast (5, kthToLast)) {
         std::cout << kthToLast << "\n";
     }
+
+    l.deleteMiddleNode(l.getHead()->next->next);
+    l.printList();
 
     return 0;
 }

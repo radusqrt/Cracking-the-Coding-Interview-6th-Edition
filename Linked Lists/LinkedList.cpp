@@ -58,6 +58,9 @@ void LinkedList <T>::removeDuplicates() {
 
                 delete second->next;
                 second->next = newNext;
+                if (second->next == NULL) {
+                    tail = second;
+                }
             }
             second = second->next;
         }
@@ -90,6 +93,21 @@ bool LinkedList <T>::kthToLast(int k, T &data) {
 
     data = slow->data;
     return true;
+}
+
+template <class T>
+void LinkedList <T>::deleteMiddleNode(Node<T> *node) {
+    if (node != head && node != tail) {
+        node->data = node->next->data;
+        Node <T> *secondNext = node->next->next;
+        delete node->next;
+        node->next = secondNext;
+    }
+}
+
+template <class T>
+Node<T> *LinkedList <T>::getHead() {
+    return head;
 }
 
 template class LinkedList <int>;

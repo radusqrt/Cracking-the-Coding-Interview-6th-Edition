@@ -20,6 +20,7 @@ public:
     void removeDuplicates ();
     bool kthToLast (int k, T &data);
     void deleteMiddleNode (Node <T> *node);
+    void partition (int value);
 };
 
 #endif //CTCI_6TH_EDITION_LINKEDLIST_H

@@ -61,8 +61,10 @@ void LinkedList <T>::removeDuplicates() {
                 if (second->next == NULL) {
                     tail = second;
                 }
+            } else {
+                second = second->next;
             }
-            second = second->next;
+
         }
         first = first->next;
     }
@@ -108,6 +110,51 @@ void LinkedList <T>::deleteMiddleNode(Node<T> *node) {
 template <class T>
 Node<T> *LinkedList <T>::getHead() {
     return head;
+}
+
+template <class T>
+void LinkedList <T>::partition(int value) {
+    Node <T> *before, *beforeTail, *after, *curr;
+    before = after = beforeTail = NULL;
+    curr = head;
+
+    while (curr != NULL) {
+        Node <T> *nextValue = curr->next;
+
+        if (curr->data < value) {
+            if (before == NULL) {
+                before = new Node <T> ();
+                before->data = curr->data;
+                beforeTail = before;
+            } else {
+                Node <T> *newNode = new Node <T> ();
+                newNode->data = curr->data;
+                beforeTail->next = newNode;
+                beforeTail = newNode;
+            }
+        } else {
+            if (after == NULL) {
+                after = new Node <T> ();
+                after->data = curr->data;
+                tail = after;
+            } else {
+                Node <T> *newNode = new Node <T> ();
+                newNode->data = curr->data;
+                tail->next = newNode;
+                tail = newNode;
+            }
+        }
+
+        delete curr;
+        curr = nextValue;
+    }
+
+    if (before != NULL) {
+        head = before;
+        beforeTail->next = after;
+    } else {
+        head = after;
+    }
 }
 
 template class LinkedList <int>;

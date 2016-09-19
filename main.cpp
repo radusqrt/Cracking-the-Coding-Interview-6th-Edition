@@ -71,26 +71,29 @@ int main () {
     LinkedList <int> l;
     int kthToLast;
 
-    l.insert(1);
-    l.insert(2);
-    l.insert(3);
-    l.insert(3);
-    l.insert(4);
-    l.insert(5);
-    l.insert(2);
-    l.insert(1);
-    l.insert(3);
-    l.printList();
+    l.insert (1);
+    l.insert (3);
+    l.insert (3);
+    l.insert (3);
+    l.insert (4);
+    l.insert (5);
+    l.insert (2);
+    l.insert (1);
+    l.insert (3);
+    l.printList ();
 
-    l.removeDuplicates();
-    l.printList();
+    l.removeDuplicates ();
+    l.printList ();
 
-    if (l.kthToLast (5, kthToLast)) {
+    if (l.kthToLast (2, kthToLast)) {
         std::cout << kthToLast << "\n";
     }
 
-    l.deleteMiddleNode(l.getHead()->next->next);
-    l.printList();
+    l.deleteMiddleNode (l.getHead ()->next->next);
+    l.printList ();
+
+    l.partition (3);
+    l.printList ();
 
     return 0;
 }

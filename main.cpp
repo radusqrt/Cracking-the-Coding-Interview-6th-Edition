@@ -5,8 +5,11 @@
 #include <iostream>
 #include <cstring>
 #include "Arrays and Strings/Strings.h"
+#include "Linked Lists/LinkedList.h"
 
 int main () {
+    /* ARRAYS AND STRINGS
+     *
     char *toURLify = new char[100];
     char *strPalindrome = new char[100];
     char *oneAway1 = new char[100];
@@ -62,6 +65,23 @@ int main () {
     delete[] oneAway1;
     delete[] oneAway2;
     delete[] strPalindrome;
-    delete[] toURLify;
+    delete[] toURLify; */
+
+    /* LINKED LISTS */
+    LinkedList <int> l;
+
+    l.insert(1);
+    l.insert(2);
+    l.insert(3);
+    l.insert(3);
+    l.insert(4);
+    l.insert(5);
+    l.insert(2);
+    l.insert(1);
+    l.insert(3);
+    l.printList();
+    l.removeDuplicates();
+    l.printList();
+
     return 0;
 }

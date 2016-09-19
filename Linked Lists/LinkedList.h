@@ -17,6 +17,7 @@ public:
     void insert (T element);
     void printList ();
     void removeDuplicates ();
+    bool kthToLast (int k, T &data);
 };
 
 #endif //CTCI_6TH_EDITION_LINKEDLIST_H

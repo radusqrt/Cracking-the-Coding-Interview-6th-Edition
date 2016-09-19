@@ -65,4 +65,31 @@ void LinkedList <T>::removeDuplicates() {
     }
 }
 
+template <class T>
+bool LinkedList <T>::kthToLast(int k, T &data) {
+    if (k <= 0) {
+        return false;
+    }
+
+    Node <T> *fast, *slow;
+    fast = slow = head;
+    k --;
+
+    while (k -- && fast->next != NULL) {
+        fast = fast->next;
+    }
+
+    if (k > 0) {
+        return false;
+    }
+
+    while (fast->next != NULL) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    data = slow->data;
+    return true;
+}
+
 template class LinkedList <int>;

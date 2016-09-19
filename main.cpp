@@ -69,6 +69,7 @@ int main () {
 
     /* LINKED LISTS */
     LinkedList <int> l;
+    int kthToLast;
 
     l.insert(1);
     l.insert(2);
@@ -82,6 +83,9 @@ int main () {
     l.printList();
     l.removeDuplicates();
     l.printList();
+    if (l.kthToLast (5, kthToLast)) {
+        std::cout << kthToLast << "\n";
+    }
 
     return 0;
 }

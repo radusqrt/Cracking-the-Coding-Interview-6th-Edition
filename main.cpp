@@ -105,6 +105,35 @@ int main () {
     l.addList (toAdd, result);
     result.printList ();
 
-    std::cout << result.isPalindrome ();
+    std::cout << result.isPalindrome () << "\n";
+
+    Node <int> *first = new Node <int> ();
+    first->data = 1;
+    Node <int> *tail = new Node <int> ();
+    tail->data = 2;
+    first->next = tail;
+    Node <int> *newNode = new Node <int> ();
+    newNode->data = 3;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 4;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 5;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 6;
+    tail->next = newNode;
+    tail = newNode;
+
+    Node <int> *second = new Node <int> ();
+    second->data = 7;
+    second->next = first->next->next->next->next;
+
+    std::cout << findIntersection (first, second)->data << "\n";
+
     return 0;
 }

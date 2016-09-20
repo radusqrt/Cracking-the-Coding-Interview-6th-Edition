@@ -4,6 +4,7 @@
 
 #include <cstddef>
 #include <iostream>
+#include <stack>
 #include "LinkedList.h"
 
 template <class T>
@@ -188,6 +189,33 @@ void LinkedList <T>::addList(LinkedList <T> &toAdd, LinkedList <T> &result) {
     if (carry) {
         result.insert (1);
     }
+}
+
+template <class T>
+bool LinkedList <T>::isPalindrome () {
+    std::stack <T> s;
+    Node <T> *slow, *fast;
+    slow = fast = head;
+
+    while (fast != NULL && fast->next != NULL) {
+        s.push (slow->data);
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    if (fast != NULL) {
+        slow = slow->next;
+    } else {
+        s.pop ();
+    }
+
+    while (slow != NULL) {
+        if (slow->data != s.top ()) return false;
+        s.pop ();
+        slow = slow->next;
+    }
+
+    return true;
 }
 
 template class LinkedList <int>;

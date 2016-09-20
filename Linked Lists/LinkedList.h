@@ -22,6 +22,7 @@ public:
     void deleteMiddleNode (Node <T> *node);
     void partition (int value);
     void addList (LinkedList &toAdd, LinkedList &result);
+    bool isPalindrome ();
 };
 
 #endif //CTCI_6TH_EDITION_LINKEDLIST_H

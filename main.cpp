@@ -95,15 +95,16 @@ int main () {
     l.partition (3);
     l.printList ();
 
-    toAdd.insert (9);
+    toAdd.insert (0);
+    toAdd.insert (0);
     toAdd.insert (7);
     toAdd.insert (6);
-    toAdd.insert (4);
 
     toAdd.printList ();
 
     l.addList (toAdd, result);
     result.printList ();
 
+    std::cout << result.isPalindrome ();
     return 0;
 }

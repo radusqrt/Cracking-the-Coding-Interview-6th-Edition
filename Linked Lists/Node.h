@@ -55,4 +55,23 @@ Node <T>* findIntersection (Node <T> *head1, Node <T> *head2) {
     return aux;
 }
 
+template <class T>
+Node <T> *findLoop (Node <T> *head) {
+    Node <T> *slow, *fast;
+    slow = fast = head;
+
+    do {
+        slow = slow->next;
+        fast = fast->next->next;
+    } while (slow != fast);
+
+    slow = head;
+    while (slow != fast) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    return slow;
+}
+
 #endif //CTCI_6TH_EDITION_NODE_H

@@ -107,6 +107,8 @@ int main () {
 
     std::cout << result.isPalindrome () << "\n";
 
+    // Works but has memory leaks and I'm too tired to fix them
+    /*
     Node <int> *first = new Node <int> ();
     first->data = 1;
     Node <int> *tail = new Node <int> ();
@@ -133,7 +135,36 @@ int main () {
     second->data = 7;
     second->next = first->next->next->next->next;
 
-    std::cout << findIntersection (first, second)->data << "\n";
+    std::cout << findIntersection (first, second)->data << "\n"; */
+
+    Node <int> *head = new Node <int> ();
+    head->data = 1;
+    Node <int> *tail = new Node <int> ();
+    tail->data = 2;
+    head->next = tail;
+    Node <int> *newNode = new Node <int> ();
+    newNode->data = 3;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 4;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 5;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 6;
+    tail->next = newNode;
+    tail = newNode;
+    newNode = new Node <int> ();
+    newNode->data = 7;
+    tail->next = newNode;
+    tail = newNode;
+    tail->next = head->next->next->next;
+
+    std::cout << findLoop (head)->data << "\n";
 
     return 0;
 }

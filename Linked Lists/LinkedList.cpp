@@ -21,7 +21,7 @@ LinkedList <T>::~LinkedList () {
 }
 
 template <class T>
-void LinkedList <T>::insert(T element) {
+void LinkedList <T>::insert (T element) {
     if (tail == NULL) {
         head = new Node <T> ();
         head->data = element;
@@ -35,7 +35,7 @@ void LinkedList <T>::insert(T element) {
 }
 
 template <class T>
-void LinkedList <T>::printList() {
+void LinkedList <T>::printList () {
     Node <T> *aux = head;
 
     while(aux != NULL) {
@@ -46,7 +46,7 @@ void LinkedList <T>::printList() {
 }
 
 template <class T>
-void LinkedList <T>::removeDuplicates() {
+void LinkedList <T>::removeDuplicates () {
     Node <T> *first = head;
 
     while (first->next != NULL) {
@@ -71,7 +71,7 @@ void LinkedList <T>::removeDuplicates() {
 }
 
 template <class T>
-bool LinkedList <T>::kthToLast(int k, T &data) {
+bool LinkedList <T>::kthToLast (int k, T &data) {
     if (k <= 0) {
         return false;
     }
@@ -98,7 +98,7 @@ bool LinkedList <T>::kthToLast(int k, T &data) {
 }
 
 template <class T>
-void LinkedList <T>::deleteMiddleNode(Node<T> *node) {
+void LinkedList <T>::deleteMiddleNode (Node<T> *node) {
     if (node != head && node != tail) {
         node->data = node->next->data;
         Node <T> *secondNext = node->next->next;
@@ -108,12 +108,12 @@ void LinkedList <T>::deleteMiddleNode(Node<T> *node) {
 }
 
 template <class T>
-Node<T> *LinkedList <T>::getHead() {
+Node<T> *LinkedList <T>::getHead () {
     return head;
 }
 
 template <class T>
-void LinkedList <T>::partition(int value) {
+void LinkedList <T>::partition (int value) {
     Node <T> *before, *beforeTail, *after, *curr;
     before = after = beforeTail = NULL;
     curr = head;
@@ -149,11 +149,44 @@ void LinkedList <T>::partition(int value) {
         curr = nextValue;
     }
 
-    if (before != NULL) {
+    if (beforeTail != NULL) {
         head = before;
         beforeTail->next = after;
     } else {
         head = after;
+    }
+}
+
+template <class T>
+void LinkedList <T>::addList(LinkedList <T> &toAdd, LinkedList <T> &result) {
+    if (result.getHead() != NULL) {
+        result.~LinkedList ();
+    }
+
+    int carry = 0;
+    Node <T> *aux = head, *aux2 = toAdd.getHead ();
+
+    while (aux != NULL && aux2 != NULL) {
+        result.insert ((aux->data + aux2->data + carry) % 10);
+        carry = (aux->data + aux2->data + carry) / 10;
+        aux = aux->next;
+        aux2 = aux2->next;
+    }
+
+    while (aux != NULL) {
+        result.insert ((aux->data + carry) % 10);
+        carry = (aux->data + carry) / 10;
+        aux = aux->next;
+    }
+
+    while (aux2 != NULL) {
+        result.insert ((aux2->data + carry) % 10);
+        carry = (aux2->data + carry) / 10;
+        aux2 = aux2->next;
+    }
+
+    if (carry) {
+        result.insert (1);
     }
 }
 

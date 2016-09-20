@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cstring>
-#include "Arrays and Strings/Strings.h"
+//#include "Arrays and Strings/Strings.h"
 #include "Linked Lists/LinkedList.h"
 
 int main () {
@@ -68,7 +68,7 @@ int main () {
     delete[] toURLify; */
 
     /* LINKED LISTS */
-    LinkedList <int> l;
+    LinkedList <int> l, toAdd, result;
     int kthToLast;
 
     l.insert (1);
@@ -94,6 +94,16 @@ int main () {
 
     l.partition (3);
     l.printList ();
+
+    toAdd.insert (9);
+    toAdd.insert (7);
+    toAdd.insert (6);
+    toAdd.insert (4);
+
+    toAdd.printList ();
+
+    l.addList (toAdd, result);
+    result.printList ();
 
     return 0;
 }

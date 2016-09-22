@@ -8,11 +8,11 @@
 template <class T>
 struct Node {
     T data;
-    Node <T> *next;
+    Node <T> *next, *prev;
 
 public:
     Node () {
-        next = NULL;
+        next = prev = NULL;
     }
 };
 

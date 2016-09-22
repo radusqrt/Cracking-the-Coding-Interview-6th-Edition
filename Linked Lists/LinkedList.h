@@ -5,7 +5,7 @@
 #ifndef CTCI_6TH_EDITION_LINKEDLIST_H
 #define CTCI_6TH_EDITION_LINKEDLIST_H
 
-#include "Node.h"
+#include "../Node.h"
 
 template <class T>
 class LinkedList {

@@ -5,7 +5,8 @@
 #include <iostream>
 #include <cstring>
 //#include "Arrays and Strings/Strings.h"
-#include "Linked Lists/LinkedList.h"
+//#include "Linked Lists/LinkedList.h"
+#include "Stacks and Queues/Stack.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -67,7 +68,7 @@ int main () {
     delete[] strPalindrome;
     delete[] toURLify; */
 
-    /* LINKED LISTS */
+    /* LINKED LISTS
     LinkedList <int> l, toAdd, result;
     int kthToLast;
 
@@ -135,7 +136,7 @@ int main () {
     second->data = 7;
     second->next = first->next->next->next->next;
 
-    std::cout << findIntersection (first, second)->data << "\n"; */
+    std::cout << findIntersection (first, second)->data << "\n";
 
     Node <int> *head = new Node <int> ();
     head->data = 1;
@@ -164,7 +165,17 @@ int main () {
     tail = newNode;
     tail->next = head->next->next->next;
 
-    std::cout << findLoop (head)->data << "\n";
+    std::cout << findLoop (head)->data << "\n"; */
+
+    /* STACKS AND QUEUES */
+
+    Stack <int> st;
+
+    st.push (5);
+    std::cout << st.pop () << "\n";
+    if (st.empty ()) {
+        std::cout << "E goala, boss!\n";
+    }
 
     return 0;
 }

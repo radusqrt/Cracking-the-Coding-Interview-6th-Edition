@@ -36,6 +36,7 @@ template <class T>
 T Stack <T>::pop () {
     if (last != NULL) {
         T toReturn = last->data;
+
         if (last->prev == NULL) {
             delete last;
             last = NULL;
@@ -43,12 +44,13 @@ T Stack <T>::pop () {
             last = last->prev;
             delete last->next;
         }
+
         return toReturn;
     }
 }
 
 template <class T>
-void Stack <T>::push(T value) {
+void Stack <T>::push (T value) {
     if (last == NULL) {
         last = new Node <T> ();
         last->data = value;

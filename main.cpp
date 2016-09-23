@@ -7,6 +7,7 @@
 //#include "Arrays and Strings/Strings.h"
 //#include "Linked Lists/LinkedList.h"
 #include "Stacks and Queues/Stack.h"
+#include "Stacks and Queues/Queue.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -170,12 +171,23 @@ int main () {
     /* STACKS AND QUEUES */
 
     Stack <int> st;
+    Queue <int> q;
+    int i;
 
-    st.push (5);
-    std::cout << st.pop () << "\n";
-    if (st.empty ()) {
-        std::cout << "E goala, boss!\n";
+    for (i = 0; i < 10; ++ i) {
+        st.push (i);
+        q.push (i);
     }
+
+    while (!st.empty ()) {
+        std::cout << st.pop () << ", ";
+    }
+    std::cout << "\n";
+
+    while (!q.empty ()) {
+        std::cout << q.pop () << ", ";
+    }
+    std::cout << "\n";
 
     return 0;
 }

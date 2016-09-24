@@ -5,6 +5,8 @@
 #ifndef CTCI_6TH_EDITION_NODE_H
 #define CTCI_6TH_EDITION_NODE_H
 
+#include <cstddef>
+
 template <class T>
 struct Node {
     T data;

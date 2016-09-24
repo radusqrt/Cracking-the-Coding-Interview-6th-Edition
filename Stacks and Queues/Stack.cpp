@@ -8,6 +8,7 @@
 template <class T>
 Stack <T>::Stack () {
     last = NULL;
+    size = 0;
 }
 
 template <class T>
@@ -44,6 +45,7 @@ T Stack <T>::pop () {
             last = last->prev;
             delete last->next;
         }
+        size --;
 
         return toReturn;
     }
@@ -61,6 +63,12 @@ void Stack <T>::push (T value) {
         newNode->prev = last;
         last = newNode;
     }
+    size ++;
+}
+
+template <class T>
+int Stack <T>::getSize () {
+    return size;
 }
 
 template class Stack <int>;

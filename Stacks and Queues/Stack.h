@@ -10,6 +10,7 @@
 template <class T>
 class Stack {
     Node <T> *last;
+    int size;
 
 public:
     Stack ();
@@ -18,6 +19,7 @@ public:
     T top ();
     T pop ();
     void push (T value);
+    int getSize ();
 };
 
 #endif //CTCI_6TH_EDITION_STACK_H

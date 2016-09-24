@@ -72,3 +72,20 @@ int Stack <T>::getSize () {
 }
 
 template class Stack <int>;
+
+void sortStack (Stack<int> *stack) {
+    Stack <int> aux;
+
+    while (!stack->empty ()) {
+        int temp = stack->pop ();
+
+        while (!aux.empty () && aux.top () > temp) {
+            stack->push (aux.pop ());
+        }
+        aux.push (temp);
+    }
+
+    while (!aux.empty ()) {
+        stack->push (aux.pop ());
+    }
+}

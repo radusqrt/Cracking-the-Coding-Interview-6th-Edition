@@ -226,6 +226,19 @@ int main () {
     while (!q2.empty ()) {
         std:: cout << q2.pop () << ", ";
     }
+    std::cout << "\n";
+
+    st.push (1);
+    st.push (3);
+    st.push (5);
+    st.push (2);
+    st.push (8);
+    st.push (6);
+
+    sortStack (&st);
+    while (!st.empty ()) {
+        std::cout << st.pop () << ", ";
+    }
 
     return 0;
 }

@@ -22,4 +22,6 @@ public:
     int getSize ();
 };
 
+void sortStack (Stack <int> *stack);
+
 #endif //CTCI_6TH_EDITION_STACK_H

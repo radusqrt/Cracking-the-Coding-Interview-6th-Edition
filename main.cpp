@@ -8,6 +8,7 @@
 //#include "Linked Lists/LinkedList.h"
 #include "Stacks and Queues/Stack.h"
 #include "Stacks and Queues/Queue.h"
+#include "Stacks and Queues/StackWithMin.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -172,6 +173,7 @@ int main () {
 
     Stack <int> st;
     Queue <int> q;
+    StackWithMin minStack;
     int i;
 
     for (i = 0; i < 10; ++ i) {
@@ -188,6 +190,17 @@ int main () {
         std::cout << q.pop () << ", ";
     }
     std::cout << "\n";
+
+    minStack.push (6);
+    minStack.push (7);
+    minStack.push (3);
+    minStack.push (4);
+    minStack.push (2);
+
+    while (!minStack.empty ()) {
+        std::cout << minStack.getMin () << ", ";
+        minStack.pop ();
+    }
 
     return 0;
 }

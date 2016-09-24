@@ -11,6 +11,7 @@
 #include "Stacks and Queues/StackWithMin.h"
 #include "Stacks and Queues/SetOfStacks.h"
 #include "Stacks and Queues/MyQueue.h"
+#include "Stacks and Queues/AnimalQueue.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -178,6 +179,7 @@ int main () {
     StackWithMin minStack;
     SetOfStacks set (3);
     MyQueue q2;
+    AnimalQueue aq;
     int i;
 
     for (i = 0; i < 10; ++ i) {
@@ -239,6 +241,15 @@ int main () {
     while (!st.empty ()) {
         std::cout << st.pop () << ", ";
     }
+    std::cout << "\n";
+
+    aq.pushCat ();
+    aq.pushCat ();
+    aq.pushCat ();
+    aq.pushDog ();
+    aq.pushCat ();
+
+    std::cout << aq.getDog ();
 
     return 0;
 }

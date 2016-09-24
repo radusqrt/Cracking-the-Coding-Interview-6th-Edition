@@ -10,6 +10,7 @@
 #include "Stacks and Queues/Queue.h"
 #include "Stacks and Queues/StackWithMin.h"
 #include "Stacks and Queues/SetOfStacks.h"
+#include "Stacks and Queues/MyQueue.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -176,6 +177,7 @@ int main () {
     Queue <int> q;
     StackWithMin minStack;
     SetOfStacks set (3);
+    MyQueue q2;
     int i;
 
     for (i = 0; i < 10; ++ i) {
@@ -212,7 +214,18 @@ int main () {
     set.push (5);
 
     std::cout << set.popAt (0) << ", " << set.popAt (1) << ", ";
-    std::cout << set.popAt (0) << ", ";
+    std::cout << set.popAt (0) << "\n";
+
+    q2.push (1);
+    q2.push (2);
+    q2.push (3);
+    q2.push (4);
+    std::cout << q2.pop () << ", ";
+    std::cout << q2.pop () << ", ";
+    q2.push (5);
+    while (!q2.empty ()) {
+        std:: cout << q2.pop () << ", ";
+    }
 
     return 0;
 }

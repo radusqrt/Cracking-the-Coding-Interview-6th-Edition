@@ -5,21 +5,21 @@
 #ifndef CTCI_6TH_EDITION_LINKEDLIST_H
 #define CTCI_6TH_EDITION_LINKEDLIST_H
 
-#include "../Node.h"
+#include "../Utils/LinkedListNode.h"
 
 template <class T>
 class LinkedList {
-    Node <T> *head, *tail;
+    LinkedListNode <T> *head, *tail;
 
 public:
     LinkedList ();
     ~LinkedList ();
-    Node <T>* getHead ();
+    LinkedListNode <T>* getHead ();
     void insert (T element);
     void printList ();
     void removeDuplicates ();
     bool kthToLast (int k, T &data);
-    void deleteMiddleNode (Node <T> *node);
+    void deleteMiddleNode (LinkedListNode <T> *node);
     void partition (int value);
     void addList (LinkedList &toAdd, LinkedList &result);
     bool isPalindrome ();

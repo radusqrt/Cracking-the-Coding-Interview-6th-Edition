@@ -4,14 +4,16 @@
 
 #include <iostream>
 #include <cstring>
+#include <math.h>
 //#include "Arrays and Strings/Strings.h"
 //#include "Linked Lists/LinkedList.h"
-#include "Stacks and Queues/Stack.h"
-#include "Stacks and Queues/Queue.h"
-#include "Stacks and Queues/StackWithMin.h"
-#include "Stacks and Queues/SetOfStacks.h"
-#include "Stacks and Queues/MyQueue.h"
-#include "Stacks and Queues/AnimalQueue.h"
+//#include "Stacks and Queues/Stack.h"
+//#include "Stacks and Queues/Queue.h"
+//#include "Stacks and Queues/StackWithMin.h"
+//#include "Stacks and Queues/SetOfStacks.h"
+//#include "Stacks and Queues/MyQueue.h"
+//#include "Stacks and Queues/AnimalQueue.h"
+#include "Trees and Graphs/BinaryTreeNode.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -115,56 +117,56 @@ int main () {
 
     // Works but has memory leaks and I'm too tired to fix them
     /*
-    Node <int> *first = new Node <int> ();
+    LinkedListNode <int> *first = new LinkedListNode <int> ();
     first->data = 1;
-    Node <int> *tail = new Node <int> ();
+    LinkedListNode <int> *tail = new LinkedListNode <int> ();
     tail->data = 2;
     first->next = tail;
-    Node <int> *newNode = new Node <int> ();
+    LinkedListNode <int> *newNode = new LinkedListNode <int> ();
     newNode->data = 3;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 4;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 5;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 6;
     tail->next = newNode;
     tail = newNode;
 
-    Node <int> *second = new Node <int> ();
+    LinkedListNode <int> *second = new LinkedListNode <int> ();
     second->data = 7;
     second->next = first->next->next->next->next;
 
     std::cout << findIntersection (first, second)->data << "\n";
 
-    Node <int> *head = new Node <int> ();
+    LinkedListNode <int> *head = new LinkedListNode <int> ();
     head->data = 1;
-    Node <int> *tail = new Node <int> ();
+    LinkedListNode <int> *tail = new LinkedListNode <int> ();
     tail->data = 2;
     head->next = tail;
-    Node <int> *newNode = new Node <int> ();
+    LinkedListNode <int> *newNode = new LinkedListNode <int> ();
     newNode->data = 3;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 4;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 5;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 6;
     tail->next = newNode;
     tail = newNode;
-    newNode = new Node <int> ();
+    newNode = new LinkedListNode <int> ();
     newNode->data = 7;
     tail->next = newNode;
     tail = newNode;
@@ -172,7 +174,7 @@ int main () {
 
     std::cout << findLoop (head)->data << "\n"; */
 
-    /* STACKS AND QUEUES */
+    /* STACKS AND QUEUES
 
     Stack <int> st;
     Queue <int> q;
@@ -249,7 +251,53 @@ int main () {
     aq.pushDog ();
     aq.pushCat ();
 
-    std::cout << aq.getDog ();
+    std::cout << aq.getDog (); */
+
+    /* TREES AND GRAPHS */
+
+    int **lists, i;
+    BinaryTreeNode *root = new BinaryTreeNode ();
+
+    lists = new int*[4];
+    for (i = 0; i < 4; ++ i) {
+        lists[i] = new int[(int) pow (2, i) + 1];
+    }
+
+    root->data = 1;
+    BinaryTreeNode *aux = new BinaryTreeNode ();
+    aux->data = 2;
+    root->left = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 3;
+    root->right = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 4;
+    root->left->left = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 5;
+    root->left->right = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 6;
+    root->right->left = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 7;
+    root->right->right = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 8;
+    root->right->left->left = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 9;
+    root->right->left->right = aux;
+
+    createLevelLists (lists, root, 0);
+    for (i = 0; i < 4; ++ i) {
+        int j;
+
+        for (j = 1; j <= lists[i][0]; ++ j) {
+            std::cout << lists[i][j] << " ";
+        }
+        std::cout << "\n";
+    }
 
     return 0;
 }

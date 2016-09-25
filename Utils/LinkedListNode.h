@@ -8,20 +8,20 @@
 #include <cstddef>
 
 template <class T>
-struct Node {
+struct LinkedListNode {
     T data;
-    Node <T> *next, *prev;
+    LinkedListNode <T> *next, *prev;
 
 public:
-    Node () {
+    LinkedListNode () {
         next = prev = NULL;
     }
 };
 
 template <class T>
-Node <T>* findIntersection (Node <T> *head1, Node <T> *head2) {
+LinkedListNode <T>* findIntersection (LinkedListNode <T> *head1, LinkedListNode <T> *head2) {
     int length1 = 0, length2 = 0;
-    Node <T> *aux, *aux2;
+    LinkedListNode <T> *aux, *aux2;
 
     aux = head1;
     while (aux != NULL) {
@@ -58,8 +58,8 @@ Node <T>* findIntersection (Node <T> *head1, Node <T> *head2) {
 }
 
 template <class T>
-Node <T> *findLoop (Node <T> *head) {
-    Node <T> *slow, *fast;
+LinkedListNode <T> *findLoop (LinkedListNode <T> *head) {
+    LinkedListNode <T> *slow, *fast;
     slow = fast = head;
 
     do {

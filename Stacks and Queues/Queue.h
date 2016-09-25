@@ -6,11 +6,11 @@
 #define CTCI_6TH_EDITION_QUEUE_H
 
 
-#include "../Node.h"
+#include "../Utils/LinkedListNode.h"
 
 template <class T>
 class Queue {
-    Node <T> *first, *last;
+    LinkedListNode <T> *first, *last;
 
 public:
     Queue ();

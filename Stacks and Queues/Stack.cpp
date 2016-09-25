@@ -54,10 +54,10 @@ T Stack <T>::pop () {
 template <class T>
 void Stack <T>::push (T value) {
     if (last == NULL) {
-        last = new Node <T> ();
+        last = new LinkedListNode <T> ();
         last->data = value;
     } else {
-        Node <T> *newNode = new Node <T> ();
+        LinkedListNode <T> *newNode = new LinkedListNode <T> ();
         newNode->data = value;
         last->next = newNode;
         newNode->prev = last;

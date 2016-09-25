@@ -5,11 +5,11 @@
 #ifndef CTCI_6TH_EDITION_STACK_H
 #define CTCI_6TH_EDITION_STACK_H
 
-#include "../Node.h"
+#include "../Utils/LinkedListNode.h"
 
 template <class T>
 class Stack {
-    Node <T> *last;
+    LinkedListNode <T> *last;
     int size;
 
 public:

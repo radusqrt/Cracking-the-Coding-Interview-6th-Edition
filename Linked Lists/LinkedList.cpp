@@ -15,7 +15,7 @@ LinkedList <T>::LinkedList () {
 template <class T>
 LinkedList <T>::~LinkedList () {
     while (head != NULL) {
-        Node <T>* aux = head;
+        LinkedListNode <T>* aux = head;
         head = head->next;
         delete aux;
     }
@@ -24,11 +24,11 @@ LinkedList <T>::~LinkedList () {
 template <class T>
 void LinkedList <T>::insert (T element) {
     if (tail == NULL) {
-        head = new Node <T> ();
+        head = new LinkedListNode <T> ();
         head->data = element;
         tail = head;
     } else {
-        Node <T> *newNode = new Node <T> ();
+        LinkedListNode <T> *newNode = new LinkedListNode <T> ();
         newNode->data = element;
         tail->next = newNode;
         tail = newNode;
@@ -37,7 +37,7 @@ void LinkedList <T>::insert (T element) {
 
 template <class T>
 void LinkedList <T>::printList () {
-    Node <T> *aux = head;
+    LinkedListNode <T> *aux = head;
 
     while(aux != NULL) {
         std::cout << aux->data << " ";
@@ -48,14 +48,14 @@ void LinkedList <T>::printList () {
 
 template <class T>
 void LinkedList <T>::removeDuplicates () {
-    Node <T> *first = head;
+    LinkedListNode <T> *first = head;
 
     while (first->next != NULL) {
-        Node <T> *second = first;
+        LinkedListNode <T> *second = first;
 
         while (second != NULL && second->next != NULL) {
             if (second->next->data == first->data) {
-                Node <T> *newNext = second->next->next;
+                LinkedListNode <T> *newNext = second->next->next;
 
                 delete second->next;
                 second->next = newNext;
@@ -77,7 +77,7 @@ bool LinkedList <T>::kthToLast (int k, T &data) {
         return false;
     }
 
-    Node <T> *fast, *slow;
+    LinkedListNode <T> *fast, *slow;
     fast = slow = head;
     k --;
 
@@ -99,47 +99,47 @@ bool LinkedList <T>::kthToLast (int k, T &data) {
 }
 
 template <class T>
-void LinkedList <T>::deleteMiddleNode (Node<T> *node) {
+void LinkedList <T>::deleteMiddleNode (LinkedListNode<T> *node) {
     if (node != head && node != tail) {
         node->data = node->next->data;
-        Node <T> *secondNext = node->next->next;
+        LinkedListNode <T> *secondNext = node->next->next;
         delete node->next;
         node->next = secondNext;
     }
 }
 
 template <class T>
-Node<T> *LinkedList <T>::getHead () {
+LinkedListNode<T> *LinkedList <T>::getHead () {
     return head;
 }
 
 template <class T>
 void LinkedList <T>::partition (int value) {
-    Node <T> *before, *beforeTail, *after, *curr;
+    LinkedListNode <T> *before, *beforeTail, *after, *curr;
     before = after = beforeTail = NULL;
     curr = head;
 
     while (curr != NULL) {
-        Node <T> *nextValue = curr->next;
+        LinkedListNode <T> *nextValue = curr->next;
 
         if (curr->data < value) {
             if (before == NULL) {
-                before = new Node <T> ();
+                before = new LinkedListNode <T> ();
                 before->data = curr->data;
                 beforeTail = before;
             } else {
-                Node <T> *newNode = new Node <T> ();
+                LinkedListNode <T> *newNode = new LinkedListNode <T> ();
                 newNode->data = curr->data;
                 beforeTail->next = newNode;
                 beforeTail = newNode;
             }
         } else {
             if (after == NULL) {
-                after = new Node <T> ();
+                after = new LinkedListNode <T> ();
                 after->data = curr->data;
                 tail = after;
             } else {
-                Node <T> *newNode = new Node <T> ();
+                LinkedListNode <T> *newNode = new LinkedListNode <T> ();
                 newNode->data = curr->data;
                 tail->next = newNode;
                 tail = newNode;
@@ -165,7 +165,7 @@ void LinkedList <T>::addList(LinkedList <T> &toAdd, LinkedList <T> &result) {
     }
 
     int carry = 0;
-    Node <T> *aux = head, *aux2 = toAdd.getHead ();
+    LinkedListNode <T> *aux = head, *aux2 = toAdd.getHead ();
 
     while (aux != NULL && aux2 != NULL) {
         result.insert ((aux->data + aux2->data + carry) % 10);
@@ -194,7 +194,7 @@ void LinkedList <T>::addList(LinkedList <T> &toAdd, LinkedList <T> &result) {
 template <class T>
 bool LinkedList <T>::isPalindrome () {
     std::stack <T> s;
-    Node <T> *slow, *fast;
+    LinkedListNode <T> *slow, *fast;
     slow = fast = head;
 
     while (fast != NULL && fast->next != NULL) {

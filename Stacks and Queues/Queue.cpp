@@ -55,11 +55,11 @@ T Queue <T>::pop () {
 template <class T>
 void Queue <T>::push (T value) {
     if (first == NULL) {
-        first = new Node <T> ();
+        first = new LinkedListNode <T> ();
         first->data = value;
         last = first;
     } else {
-        Node <T> *newNode = new Node <T> ();
+        LinkedListNode <T> *newNode = new LinkedListNode <T> ();
 
         newNode->data = value;
         last->prev = newNode;

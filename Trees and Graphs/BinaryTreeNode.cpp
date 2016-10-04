@@ -2,7 +2,6 @@
 // Created by radusqrt on 9/25/16.
 //
 
-#include <cstddef>
 #include "BinaryTreeNode.h"
 
 BinaryTreeNode::BinaryTreeNode () {
@@ -29,3 +28,14 @@ void createLevelLists (int **lists, BinaryTreeNode *root, int level) {
         createLevelLists (lists, root->right, level + 1);
     }
 }
+
+/* bool isBalanced (BinaryTreeNode *root) {
+    int heightDiff = abs (getHeight (root->left) - getHeight (root->right));
+} */
+
+/* int getHeight (BinaryTreeNode *root) {
+    if (root == NULL) return 0;
+    if (BinaryTreeNode::heights.find (root) != BinaryTreeNode::heights.end ()) {
+
+    }
+} */

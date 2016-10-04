@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstring>
 #include <math.h>
+#include <vector>
 //#include "Arrays and Strings/Strings.h"
 //#include "Linked Lists/LinkedList.h"
 //#include "Stacks and Queues/Stack.h"
@@ -14,6 +15,7 @@
 //#include "Stacks and Queues/MyQueue.h"
 //#include "Stacks and Queues/AnimalQueue.h"
 #include "Trees and Graphs/BinaryTreeNode.h"
+#include "Utils/Lists.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -295,6 +297,43 @@ int main () {
 
         for (j = 1; j <= lists[i][0]; ++ j) {
             std::cout << lists[i][j] << " ";
+        }
+        delete lists[i];
+        std::cout << "\n";
+    }
+    delete lists;
+
+    root->data = 5;
+    aux = new BinaryTreeNode ();
+    aux->data = 2;
+    root->left = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 7;
+    root->right = aux;
+    aux = new BinaryTreeNode ();
+    aux->data = 3;
+    root->left->right = aux;
+    root->left->right->left = root->left->right->right = NULL;
+    root->left->left = NULL;
+    aux = new BinaryTreeNode ();
+    aux->data = 6;
+    root->right->left = aux;
+    root->right->left->left = root->right->left->right = NULL;
+    aux = new BinaryTreeNode ();
+    aux->data = 8;
+    root->right->right = aux;
+    root->right->right->left = root->right->right->right = NULL;
+
+    std::vector <std::vector <int>> results = AllSequences(root);
+    /* std::vector <int> first = {2, 3}, second = {1}, prefix;
+    std::vector <std::vector <int>> results;
+    WeaveLists(first, second, results, prefix); */
+
+    std::cout << "Weave\n";
+
+    for (int i = 0; i < results.size(); ++ i) {
+        for (int j = 0; j < results[i].size(); ++ j) {
+            std::cout << results[i][j] << " ";
         }
         std::cout << "\n";
     }

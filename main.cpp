@@ -16,6 +16,7 @@
 //#include "Stacks and Queues/AnimalQueue.h"
 #include "Trees and Graphs/BinaryTreeNode.h"
 #include "Utils/Lists.h"
+#include "Trees and Graphs/RandomBinaryTree.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -331,12 +332,24 @@ int main () {
 
     std::cout << "Weave\n";
 
-    for (int i = 0; i < results.size(); ++ i) {
+    for (i = 0; i < results.size(); ++ i) {
         for (int j = 0; j < results[i].size(); ++ j) {
             std::cout << results[i][j] << " ";
         }
         std::cout << "\n";
     }
+
+    RandomBinaryTree *rnd_root = new RandomBinaryTree(5);
+    rnd_root->insert(4);
+    rnd_root->insert(7);
+    rnd_root->insert(6);
+    rnd_root->insert(9);
+    rnd_root->insert(3);
+    rnd_root->insert(1);
+
+    std::cout << rnd_root->getRandomNode()->getData();
+
+
 
     return 0;
 }

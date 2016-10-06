@@ -350,12 +350,32 @@ int main () {
     std::cout << rnd_root->getRandomNode()->getData(); */
 
     int n, m, i, j;
-    std::cin >> n >> m >> j >> i;
+    n = 1024;
+    m = 19;
+    j = 2;
+    i = 6;
 
     int mask = ~(1 << (i - j + 2) - 1);
     n &= (mask << j);
     n |= (m << j);
 
     std::cout << n << "\n";
+
+    n = 1775;
+    int last = 0, curr = 0, maxi = 0;
+    while (n) {
+        if (1 & n) {
+            curr ++;
+        } else {
+            if (curr + last > maxi) {
+                maxi = curr + last;
+            }
+            last = curr;
+            curr = 0;
+        }
+        n >>= 1;
+    }
+
+    std::cout << maxi + 1 << "\n";
     return 0;
 }

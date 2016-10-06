@@ -14,9 +14,9 @@
 //#include "Stacks and Queues/SetOfStacks.h"
 //#include "Stacks and Queues/MyQueue.h"
 //#include "Stacks and Queues/AnimalQueue.h"
-#include "Trees and Graphs/BinaryTreeNode.h"
-#include "Utils/Lists.h"
-#include "Trees and Graphs/RandomBinaryTree.h"
+//#include "Trees and Graphs/BinaryTreeNode.h"
+//#include "Utils/Lists.h"
+//#include "Trees and Graphs/RandomBinaryTree.h"
 
 int main () {
     /* ARRAYS AND STRINGS
@@ -256,7 +256,7 @@ int main () {
 
     std::cout << aq.getDog (); */
 
-    /* TREES AND GRAPHS */
+    /* TREES AND GRAPHS
 
     int **lists, i;
     BinaryTreeNode *root = new BinaryTreeNode ();
@@ -326,9 +326,9 @@ int main () {
     root->right->right->left = root->right->right->right = NULL;
 
     std::vector <std::vector <int>> results = AllSequences(root);
-    /* std::vector <int> first = {2, 3}, second = {1}, prefix;
+    std::vector <int> first = {2, 3}, second = {1}, prefix;
     std::vector <std::vector <int>> results;
-    WeaveLists(first, second, results, prefix); */
+    WeaveLists(first, second, results, prefix);
 
     std::cout << "Weave\n";
 
@@ -347,9 +347,15 @@ int main () {
     rnd_root->insert(3);
     rnd_root->insert(1);
 
-    std::cout << rnd_root->getRandomNode()->getData();
+    std::cout << rnd_root->getRandomNode()->getData(); */
 
+    int n, m, i, j;
+    std::cin >> n >> m >> j >> i;
 
+    int mask = ~(1 << (i - j + 2) - 1);
+    n &= (mask << j);
+    n |= (m << j);
 
+    std::cout << n << "\n";
     return 0;
 }
